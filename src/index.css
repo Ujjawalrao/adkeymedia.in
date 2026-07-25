@@ -1,0 +1,42 @@
+@import "tailwindcss";
+/* @import 'remixicon/css/remixicon.css'; */
+
+
+*{
+  /* margin: 0;
+  padding: 0; */
+  box-sizing: border-box;
+  /* font-family: "Michroma", sans-serif; */
+  font-family: "Cabin", sans-serif;
+  /* font-family: "satisfy"; */
+  font-weight: 400;
+  font-style: normal;
+}
+/* for removing scrollbar of body */
+body::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+body{
+  background: #000000;
+}
+/* 
+.michroma-regular {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
+ /* curve fonts */
+.satisfy-regular {
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.cabin-uniquifier {
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
