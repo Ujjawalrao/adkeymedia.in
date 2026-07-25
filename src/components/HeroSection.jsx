@@ -2,6 +2,8 @@
 import React from 'react'
 import ShinyText from './ShinyText.jsx';
 import { motion } from "motion/react";
+import charge from '../assets/props/charge.png';
+import start from '../assets/props/start.png';
 
 function HeroSection() {
   return (
@@ -14,8 +16,8 @@ function HeroSection() {
 
     <motion.img 
       
-      src="src/assets/props/charge.png"
-      alt="Crystal"
+      src={charge}
+      alt="Charge Icon"
       drag
       dragConstraints={{ top: -300, left: -200, right: 1000, bottom: 300 }}
       transition={{ duration: 1 }}
@@ -26,8 +28,8 @@ function HeroSection() {
 
     <motion.img 
       
-      src="src/assets/props/start.png"
-      alt="Crystal"
+      src={start}
+      alt="Start Icon"
       drag
       dragConstraints={{ top: -300, left: -900, right: 200, bottom: 300 }}
       transition={{ duration: 1 }}
