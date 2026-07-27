@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import OurServices from './pages/OurServices.jsx';
@@ -11,8 +11,12 @@ import { lenis } from './hooks/useLenis.js';
 import IntroOverlay from './components/IntroOverlay.jsx';
 import PillNav from './components/PillNav.jsx';
 import logo from './assets/brandLogo/logo.webp';
+import Noise from './components/Noise.jsx';
+
+
 
 function App() {
+  
   useEffect(() => {
     function raf(time) {
       lenis.raf(time);
@@ -22,9 +26,11 @@ function App() {
   }, []);
 
   return (
+    
     <Router>
       <Navbar />
       {/* <IntroOverlay /> */}
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

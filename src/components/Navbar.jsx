@@ -23,33 +23,34 @@ export default function Navbar() {
             <img src={whitelogo} alt="Brand-logo" className="h-10 w-auto" />
           </Link>
 
-         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center border border-l-white/25 border-r-white/25 border-transparent space-x-2 bg-black/15 px-4 py-1 rounded">
-  {navLinks.map((link) => (
-    <Link
-      key={link.path}
-      to={link.path}
-      className={`group flex items-center gap-1 tracking-wide underline-red-900 ${
-        location.pathname === link.path
-          ? "text-white underline underline-offset-4"
-          : "text-white"
-      } transition-colors`}
-    >
-      <span className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out">
-        <i className="ri-arrow-right-s-fill"></i>
-      </span>
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center border border-l-white/25 border-r-white/25 border-transparent space-x-2 bg-black/15 px-4 py-1 rounded">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="group flex items-center gap-1 tracking-wide text-white transition-colors"
+              >
+                <span className="opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <i className="ri-arrow-right-s-fill"></i>
+                </span>
 
-      <span className="transition-transform duration-300 ease-out group-hover:scale-95 text-sm">
-        {
-          link.label}
-      </span>
+                <span
+                  className={`transition-transform duration-300 ease-out group-hover:scale-95 text-sm ${
+                    location.pathname === link.path
+                      ? "underline underline-offset-4"
+                      : ""
+                  }`}
+                >
+                  {link.label}
+                </span>
 
-      <span className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out">
-        <i className="ri-arrow-left-s-fill"></i>
-      </span>
-    </Link>
-  ))}
-</div>
+                <span className="opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <i className="ri-arrow-left-s-fill"></i>
+                </span>
+              </Link>
+            ))}
+          </div>
 
           {/* Desktop Button */}
           <Link

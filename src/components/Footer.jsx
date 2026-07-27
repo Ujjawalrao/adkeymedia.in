@@ -22,7 +22,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12">
+    <footer className="bg-black text-gray-300 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
@@ -63,21 +63,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-400/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} Adkey Media. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            {footerLinks.social.map((social) => (
-              <a
-                key={social.label}
-                href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
-                aria-label={social.label}
-              >
-                <span className="text-sm font-bold">{social.icon}</span>
+            <p className='text-xs text-gray-500 hover:text-white/60 transition-colors duration-300 ease-in-out'>
+              <a href="https://ujjawalraosahab.netlify.app/">
+              ~ Created by Ujjawal yadav
               </a>
-            ))}
+            </p>
           </div>
         </div>
       </div>
