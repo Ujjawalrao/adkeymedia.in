@@ -11,9 +11,14 @@ function IntroOverlay() {
         animate={{ opacity: 0 ,
           display: "none"
         }}
-        transition={{ duration: 1, delay: 2 }}
+        transition={{ duration: 3, delay: 2 }}
     >
-      <DecryptedText text={"adkeymedia.in"}  className='text-white hover:text-white' />
+      <motion.p 
+        initial={{ opacity: 0, }}
+        animate={{ opacity: 1, }}
+        exit={{ opacity: 0, }}
+        transition={{ duration: 1,}}  
+      className="text-white text-lg text-mono">adkeymedia.in</motion.p>
     </motion.div>   
   )
 }

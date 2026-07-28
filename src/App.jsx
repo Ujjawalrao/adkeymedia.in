@@ -16,6 +16,15 @@ import Noise from './components/Noise.jsx';
 
 
 function App() {
+
+  useEffect(() => {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    window.scrollTo(0, 0);
+  }, []);
+
   
   useEffect(() => {
     function raf(time) {
@@ -30,7 +39,6 @@ function App() {
     <Router>
       <Navbar />
       {/* <IntroOverlay /> */}
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

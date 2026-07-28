@@ -4,11 +4,12 @@ import ShinyText from './ShinyText.jsx';
 import { motion } from "motion/react";
 import charge from '../assets/props/charge.png';
 import start from '../assets/props/start.png';
+import whitelogo from "../assets/brandLogo/logo-white.png";
 
 function HeroSection() {
   return (
 <>
-<div className="h-[60vh] lg:min-h-[80vh] flex items-center justify-center flex-col bg-cover bg-center">
+<div className="h-[60vh] lg:min-h-[80vh] flex items-center justify-center flex-col bg-cover bg-center p-6 lg:p-0">
     <h1 className="text-xl md:text-xl lg:text-2xl font-bold text-[#86278F] text-center mb-2">
       The one and only
     </h1>
@@ -25,6 +26,8 @@ function HeroSection() {
        />
 
     <ShinyText text="Digital Marketing Agency" speed={2} shineColor="#fff" color="gray" spread={120} yoyo={true} pauseOnHover={true} direction="left" delay={0} className='text-7xl' />
+
+  
 
     <motion.img 
       

@@ -24,7 +24,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center border border-l-white/25 border-r-white/25 border-transparent space-x-2 bg-black/15 px-4 py-1 rounded">
+          <div className="hidden md:flex items-center border border-l-white/25 border-r-white/25 border-transparent space-x-2 bg-black/35 px-4 py-1 rounded">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
