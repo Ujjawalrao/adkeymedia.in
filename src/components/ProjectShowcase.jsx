@@ -72,8 +72,6 @@ export default function ProjectShowcase() {
                 transition={{
                   duration: 0.35,
                 }}
-                onHoverStart={() => scope.current?.getAnimations().forEach(a => a.pause())}
-                onHoverEnd={() => scope.current?.getAnimations().forEach(a => a.play())}
                 className="group w-50 h-50 lg:h-auto lg:w-100 shrink-0 rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800"
               >
                 <div className="overflow-hidden">

@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const certificates = [
   {
@@ -41,10 +41,6 @@ function OurCertification() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-[#86268E] font-semibold tracking-widest uppercase">
-            Achievements
-          </span>
-
           <h2 className="text-4xl md:text-6xl font-bold text-white mt-4">
             Our Certifications
           </h2>
