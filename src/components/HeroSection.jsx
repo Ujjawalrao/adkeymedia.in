@@ -8,40 +8,51 @@ import whitelogo from "../assets/brandLogo/logo-white.png";
 
 function HeroSection() {
   return (
-<>
-<div className="h-[60vh] lg:min-h-[80vh] flex items-center justify-center flex-col bg-cover bg-center p-6 lg:p-0">
-    <h1 className="text-xl md:text-xl lg:text-2xl font-bold text-[#86278F] text-center mb-2">
-      The one and only
-    </h1>
-   < br />
+    <div className="relative h-[60vh] lg:min-h-[80vh] overflow-hidden bg-cover bg-center p-6 lg:p-0">
+      <div className="absolute inset-0 z-0">
 
-    <motion.img 
-      
-      src={charge}
-      alt="Charge Icon"
-      drag
-      dragConstraints={{ top: -300, left: -200, right: 1000, bottom: 300 }}
-      transition={{ duration: 1 }}
-      className="w-22 h-22 left-[19vw] mb-2 absolute cursor-grab"
-       />
+      </div>
 
-    <ShinyText text="Digital Marketing Agency" speed={2} shineColor="#fff" color="gray" spread={120} yoyo={true} pauseOnHover={true} direction="left" delay={0} className='text-7xl' />
+      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center">
+        <h1 className="mb-4 text-xl font-bold text-[#86278F] md:text-xl lg:text-2xl">
+          The one and only
+        </h1>
 
-  
+        <div className="max-w-4xl px-4">
+          <ShinyText
+            text="Digital Marketing Agency"
+            speed={2}
+            shineColor="#fff"
+            color="gray"
+            spread={120}
+            yoyo={true}
+            pauseOnHover={true}
+            direction="left"
+            delay={0}
+            className="text-5xl sm:text-6xl lg:text-7xl"
+          />
+        </div>
+      </div>
 
-    <motion.img 
-      
-      src={start}
-      alt="Start Icon"
-      drag
-      dragConstraints={{ top: -300, left: -900, right: 200, bottom: 300 }}
-      transition={{ duration: 1 }}
-      className="w-22 h-22 right-[19vw] mt-42 absolute cursor-grab"
-       />
+      <motion.img
+        src={charge}
+        alt="Charge Icon"
+        drag
+        dragConstraints={{ top: -300, left: -200, right: 1000, bottom: 300 }}
+        transition={{ duration: 1 }}
+        className="absolute left-[19vw] top-[20%] z-20 h-22 w-22 cursor-grab"
+      />
 
-</div>
-</>
-  )
+      <motion.img
+        src={start}
+        alt="Start Icon"
+        drag
+        dragConstraints={{ top: -300, left: -900, right: 200, bottom: 300 }}
+        transition={{ duration: 1 }}
+        className="absolute right-[19vw] top-[35%] z-20 h-22 w-22 cursor-grab"
+      />
+    </div>
+  );
 }
 
 export default HeroSection

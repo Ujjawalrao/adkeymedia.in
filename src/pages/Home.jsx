@@ -10,6 +10,7 @@ import { Context } from "../context/Context.jsx";
 import ProjectShowcase from "../components/ProjectShowcase.jsx";
 import OurCertification from "../components/ourCertification.jsx";
 import WhyAdkey from "../components/WhyAdkey.jsx";
+import Galaxy from "../components/Galaxy.jsx";
 
 export default function Home() {
   const { testimonialData, thoughtsData } = useContext(Context);
@@ -20,7 +21,7 @@ export default function Home() {
 
       {/*  */}
       <section className="w-full min-h-[70vh] flex justify-center items-center overflow-hidden">
-        <div className="w-full max-w-6xl h-full border border-[#86268E] flex flex-col lg:flex-row justify-between items-stretch gap-2 p-6 rounded-sm overflow-hidden">
+        <div className="w-full max-w-6xl h-full border border-[#86268E] flex flex-col lg:flex-row justify-between items-stretch gap-2 p-6 rounded-sm overflow-hidden bg-transparent backdrop-blur-3xl shadow-xl shadow-[#86268E]/30">
           {/* 1st */}
           <div className="w-full h-[407px] rounded-sm flex flex-col gap-2 min-w-0">
             {/* inner 1st */}
@@ -99,107 +100,88 @@ export default function Home() {
             Why Choose Adkey Media?
           </motion.h2>
 
-          {/* Card 1 */}
-          <motion.div
-            initial={{ opacity: 0, y: 80, scale: 0.96 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="w-full bg-white rounded-2xl lg:rounded-[2rem] sticky top-20 lg:top-28 flex flex-col lg:flex-row items-center gap-8 overflow-hidden p-5 lg:p-8 mb-10 shadow-2xl"
-          >
-            {/* Image */}
-            <div className="w-full lg:w-1/2 h-64 sm:h-80 lg:h-[420px] rounded-2xl overflow-hidden">
-              <img
-                src="https://i.pinimg.com/736x/1b/24/67/1b24675a1e16a5928604b84bdb986972.jpg"
-                alt="Website Development"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
+          <ScrollStack useWindowScroll itemDistance={50} itemScale={0.03} itemStackDistance={24} className="w-full top-20 absolute">
+            <ScrollStackItem itemClassName="h-auto p-0 rounded-[2rem] bg-white ">
+              <div className="w-full flex flex-col lg:flex-row items-center gap-8 overflow-hidden p-5 lg:p-8">
+                <div className="w-full lg:w-1/2 h-64 sm:h-80 lg:h-[420px] rounded-2xl overflow-hidden">
+                  <img
+                    src="https://i.pinimg.com/736x/1b/24/67/1b24675a1e16a5928604b84bdb986972.jpg"
+                    alt="Website Development"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
 
-            {/* Content */}
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-2xl lg:text-4xl font-bold text-gray-900">
-                Professional Website Design & Development
-              </h2>
+                <div className="w-full lg:w-1/2">
+                  <h2 className="text-2xl lg:text-4xl font-bold text-gray-900">
+                    Professional Website Design & Development
+                  </h2>
 
-              <p className="mt-5 text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700">
-                Your website is the foundation of your online success. We build
-                modern, responsive, and high-performing websites that reflect
-                your brand identity and deliver exceptional user experiences.
-                Every website we create is optimized for speed, SEO, and
-                conversions, helping your business attract more visitors and
-                turn them into loyal customers.
-              </p>
-            </div>
-          </motion.div>
+                  <p className="mt-5 text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700">
+                    Your website is the foundation of your online success. We build
+                    modern, responsive, and high-performing websites that reflect
+                    your brand identity and deliver exceptional user experiences.
+                    Every website we create is optimized for speed, SEO, and
+                    conversions, helping your business attract more visitors and
+                    turn them into loyal customers.
+                  </p>
+                </div>
+              </div>
+            </ScrollStackItem>
 
-          {/* Card 2 */}
-          <motion.div
-            initial={{ opacity: 0, y: 80, scale: 0.96 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="w-full bg-[#54095b] rounded-2xl lg:rounded-[2rem] sticky top-20 lg:top-28 flex flex-col lg:flex-row-reverse items-center gap-8 overflow-hidden p-5 lg:p-8 mb-10 shadow-2xl"
-          >
-            {/* Image */}
-            <div className="w-full lg:w-1/2 h-64 sm:h-80 lg:h-[420px] rounded-2xl overflow-hidden">
-              <img
-                src="https://i.pinimg.com/736x/f1/1b/d7/f11bd72266c8b9bddd5d65ad51788a3a.jpg"
-                alt="Digital Marketing"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
+            <ScrollStackItem itemClassName="h-auto p-0 rounded-[2rem] bg-[#54095b]">
+              <div className="w-full flex flex-col lg:flex-row-reverse items-center gap-8 overflow-hidden p-5 lg:p-8">
+                <div className="w-full lg:w-1/2 h-64 sm:h-80 lg:h-[420px] rounded-2xl overflow-hidden">
+                  <img
+                    src="https://i.pinimg.com/736x/f1/1b/d7/f11bd72266c8b9bddd5d65ad51788a3a.jpg"
+                    alt="Digital Marketing"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
 
-            {/* Content */}
-            <div className="w-full lg:w-1/2 text-white">
-              <h2 className="text-2xl lg:text-4xl font-bold">
-                Digital Marketing That Delivers Results
-              </h2>
+                <div className="w-full lg:w-1/2 text-white">
+                  <h2 className="text-2xl lg:text-4xl font-bold">
+                    Digital Marketing That Delivers Results
+                  </h2>
 
-              <p className="mt-5 text-base sm:text-lg lg:text-xl leading-relaxed text-gray-200">
-                We help businesses grow through powerful SEO, Google Ads, Meta
-                Ads, Social Media Marketing, and content strategies. Our
-                data-driven campaigns increase your online visibility, generate
-                high-quality leads, and improve customer engagement, ensuring
-                every marketing investment contributes to measurable business
-                growth.
-              </p>
-            </div>
-          </motion.div>
+                  <p className="mt-5 text-base sm:text-lg lg:text-xl leading-relaxed text-gray-200">
+                    We help businesses grow through powerful SEO, Google Ads, Meta
+                    Ads, Social Media Marketing, and content strategies. Our
+                    data-driven campaigns increase your online visibility, generate
+                    high-quality leads, and improve customer engagement, ensuring
+                    every marketing investment contributes to measurable business
+                    growth.
+                  </p>
+                </div>
+              </div>
+            </ScrollStackItem>
 
-          {/* Card 3 */}
-          <motion.div
-            initial={{ opacity: 0, y: 80, scale: 0.96 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="w-full bg-black rounded-2xl lg:rounded-[2rem] sticky top-20 lg:top-28 flex flex-col lg:flex-row items-center gap-8 overflow-hidden p-5 lg:p-8 shadow-2xl"
-          >
-            {/* Image */}
-            <div className="w-full lg:w-1/2 h-64 sm:h-80 lg:h-[420px] rounded-2xl overflow-hidden">
-              <img
-                src="https://i.pinimg.com/736x/fa/f3/4c/faf34c402c87640cccd3ef036bde7ad2.jpg"
-                alt="Business Growth"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
+            <ScrollStackItem itemClassName="h-auto p-0 rounded-[2rem] bg-black border border-[#86268E]/40">
+              <div className="w-full flex flex-col lg:flex-row items-center gap-8 overflow-hidden p-5 lg:p-8 ">
+                <div className="w-full lg:w-1/2 h-64 sm:h-80 lg:h-[420px] rounded-2xl overflow-hidden">
+                  <img
+                    src="https://i.pinimg.com/736x/fa/f3/4c/faf34c402c87640cccd3ef036bde7ad2.jpg"
+                    alt="Business Growth"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
 
-            {/* Content */}
-            <div className="w-full lg:w-1/2 text-white">
-              <h2 className="text-2xl lg:text-4xl font-bold">
-                Grow Your Brand with Proven Strategies
-              </h2>
+                <div className="w-full lg:w-1/2 text-white">
+                  <h2 className="text-2xl lg:text-4xl font-bold">
+                    Grow Your Brand with Proven Strategies
+                  </h2>
 
-              <p className="mt-5 text-base sm:text-lg lg:text-xl leading-relaxed text-gray-300">
-                We don't just run campaigns—we build long-term growth
-                strategies. Through performance tracking, audience analysis,
-                branding, and conversion optimization, we continuously improve
-                your digital presence. Our goal is to help your business
-                generate more leads, increase sales, and achieve sustainable
-                success in today's competitive online market.
-              </p>
-            </div>
-          </motion.div>
+                  <p className="mt-5 text-base sm:text-lg lg:text-xl leading-relaxed text-gray-300">
+                    We don't just run campaigns—we build long-term growth
+                    strategies. Through performance tracking, audience analysis,
+                    branding, and conversion optimization, we continuously improve
+                    your digital presence. Our goal is to help your business
+                    generate more leads, increase sales, and achieve sustainable
+                    success in today's competitive online market.
+                  </p>
+                </div>
+              </div>
+            </ScrollStackItem>
+          </ScrollStack>
         </div>
       </section>
 

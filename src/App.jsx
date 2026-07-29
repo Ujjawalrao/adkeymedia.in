@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useContext } from 'react';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
-import OurServices from './pages/OurServices.jsx';
 import GetInTouch from './pages/GetInTouch.jsx';
+import ServicePage from './pages/ServicePage.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
@@ -42,7 +42,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/services" element={<OurServices />} />
+        <Route path="/services/:slug" element={<ServicePage />} />
         <Route path="/contact" element={<GetInTouch />} />
       </Routes>
       <Footer />
