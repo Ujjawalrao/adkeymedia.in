@@ -66,14 +66,15 @@ const testimonialData = [
     },
   ]
 
+
   // Service page Data 
   const serviceData = {
   "website-designing": {
-    title: "Website Designing",
+    title: "Transform Your Business with Digital Excellence",
     shortDescription:
       "Creative, responsive, and user-focused website designs that strengthen your brand identity and maximize conversions.",
     description:
-      "At Adkey Media, we create modern, visually appealing, and responsive website designs that provide an outstanding user experience. Every design is crafted with your business goals in mind, ensuring your website not only looks beautiful but also converts visitors into loyal customers.",
+      "Next-generation websites crafted for future growth We combine creativity, technology, and strategy to design experiences that attract, engage, and convert. Our web solutions are built for tomorrow’s digital world",
 
     heroImage: websiteDesigningImage,
 
@@ -196,6 +197,72 @@ const testimonialData = [
         question: "Is the website SEO friendly?",
         answer:
           "Absolutely. We follow modern SEO coding practices.",
+      },
+    ],
+  },
+
+  "app-development": {
+    title: "App Development",
+    shortDescription:
+      "Custom mobile and web applications built for performance, usability, and business growth.",
+    description:
+      "We design and develop custom apps that help businesses streamline operations, engage users, and scale with confidence. From idea to launch, every app is crafted with a strong user experience and reliable performance in mind.",
+
+    heroImage: websiteDevelopmentImage,
+
+    seo: {
+      title: "App Development Services | Adkey Media",
+      description:
+        "Custom app development services for mobile and web platforms with modern architecture and smooth user experience.",
+      keywords:
+        "app development, mobile app, web app, custom app, software development",
+    },
+
+    features: [
+      "Custom App Development",
+      "Mobile-Friendly Interfaces",
+      "Scalable Architecture",
+      "API Integration",
+      "Performance Optimization",
+      "Maintenance & Support",
+    ],
+
+    benefits: [
+      "Better customer engagement",
+      "Improved business efficiency",
+      "Scalable growth",
+      "Fast and secure experiences",
+      "Easy updates and maintenance",
+      "Modern technology stack",
+    ],
+
+    process: [
+      "Requirement Planning",
+      "Design & Prototyping",
+      "Development",
+      "Testing",
+      "Launch & Support",
+    ],
+
+    technologies: [
+      "React",
+      "React Native",
+      "Node.js",
+      "Firebase",
+      "MongoDB",
+      "JavaScript",
+    ],
+
+    faqs: [
+      {
+        question: "Do you build mobile apps too?",
+        answer:
+          "Yes. We build responsive web apps and mobile-friendly applications tailored to your goals.",
+      },
+      {
+        question: "Can you help after launch?",
+        answer:
+          "Absolutely. We provide ongoing support, updates, and performance improvements after deployment.",
       },
     ],
   },

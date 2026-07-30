@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function WhyAdkey() {
   return (
-    <section className="w-full py-20 px-4 bg-black">
+    <section className="w-full py-10 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <motion.h2
@@ -23,11 +23,11 @@ export default function WhyAdkey() {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="border border-zinc-800 rounded-3xl overflow-hidden bg-[#0b0b0b]"
+          className="border border-zinc-800 rounded-3xl overflow-hidden  bg-[#0b0b0b]/60 backdrop-blur-sm"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Left Side */}
-            <div className="border-b lg:border-b-0 lg:border-r border-zinc-800 p-8 lg:p-10 bg-[#0f0f0f]">
+            <div className="border-b lg:border-b-0 lg:border-r p-8 lg:p-10">
               <div className="flex items-center gap-4 mb-10">
                 <div className="w-14 h-14 rounded-xl bg-[#86268E] flex items-center justify-center">
                   <BarChart3 className="text-white" size={30} />

@@ -11,13 +11,68 @@ import ProjectShowcase from "../components/ProjectShowcase.jsx";
 import OurCertification from "../components/ourCertification.jsx";
 import WhyAdkey from "../components/WhyAdkey.jsx";
 import Galaxy from "../components/Galaxy.jsx";
+import Faq from "../components/faq.jsx";
+import aboutImage from "../assets/home-img/1.jpg";
+import Contactform from "../components/Contactform.jsx";
+import AdkeyLocation from "../components/AdkeyLocation.jsx";
 
 export default function Home() {
   const { testimonialData, thoughtsData } = useContext(Context);
 
+  
+
   return (
     <>
       <HeroSection />
+
+      <section className="w-full min-h-[80vh] py-20  overflow-hidden">
+        <motion.h1
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="text-4xl sm:text-3xl lg:text-6xl text-white font-bold text-center mb-12"
+        >
+          Best Digital Marketing Agency in Delhi NCR
+        </motion.h1>
+
+        <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16 px-4 bg-transparent backdrop-blur-2xl rounded-3xl py-10 ">
+          {/* Content */}
+          <div className="w-full flex flex-col justify-center gap-6">
+
+            <p className="text-gray-300 text-base sm:text-lg leading-8">
+              Digital marketing encompasses a wide range of online strategies
+              designed to promote businesses, products, and services. At{" "}
+              <span className="font-semibold text-white">Adkey Media</span>, we
+              provide complete digital marketing solutions including Social
+              Media Marketing, Search Engine Optimization (SEO), Pay-Per-Click
+              (PPC) advertising, Branding, Email Marketing, Website Design, and
+              Website Development. Each strategy is carefully planned to help
+              businesses grow, generate leads, and increase revenue.
+            </p>
+
+            <p className="text-gray-300 text-base sm:text-lg leading-8">
+              In today's competitive digital world, having a strong online
+              presence is no longer optional—it's essential. Businesses without
+              effective digital marketing often struggle to reach their target
+              audience and stay ahead of competitors. By partnering with{" "}
+              <span className="font-semibold text-white">Adkey Media</span>, you
+              gain a team of experts dedicated to building your brand,
+              increasing visibility, and delivering measurable business growth.
+            </p>
+          </div>
+
+          {/* Image */}
+          <div className="w-full lg:w-1/3 flex justify-center">
+            <img
+              src={aboutImage}
+              alt="Digital Marketing"
+              className="w-full max-w-md sm:max-w-lg lg:max-w-full rounded-xl object-fit shadow-2xl"
+            />
+          </div>
+        </div>
+      </section>
+      {/* 1st */}
 
       {/*  */}
       <section className="w-full min-h-[70vh] flex justify-center items-center overflow-hidden">
@@ -87,7 +142,7 @@ export default function Home() {
       </section>
 
       {/* Scroll Stack */}
-      <section className="w-full relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+      <section className="w-full relative py-16 lg:py-24 px-2 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Heading */}
           <motion.h2
@@ -95,12 +150,18 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
-            className="text-4xl sm:text-3xl lg:text-6xl text-white font-bold text-center mb-12"
+            className="text-4xl sm:text-3xl lg:text-6xl text-white font-bold text-center"
           >
-            Why Choose Adkey Media?
+            Needs a Professionally Created Website
           </motion.h2>
 
-          <ScrollStack useWindowScroll itemDistance={50} itemScale={0.03} itemStackDistance={24} className="w-full top-20 absolute">
+          <ScrollStack
+            useWindowScroll
+            itemDistance={50}
+            itemScale={0.03}
+            itemStackDistance={24}
+            className="w-full top-20 absolute"
+          >
             <ScrollStackItem itemClassName="h-auto p-0 rounded-[2rem] bg-white ">
               <div className="w-full flex flex-col lg:flex-row items-center gap-8 overflow-hidden p-5 lg:p-8">
                 <div className="w-full lg:w-1/2 h-64 sm:h-80 lg:h-[420px] rounded-2xl overflow-hidden">
@@ -112,17 +173,16 @@ export default function Home() {
                 </div>
 
                 <div className="w-full lg:w-1/2">
-                  <h2 className="text-2xl lg:text-4xl font-bold text-gray-900">
+                  {/* <h2 className="text-2xl lg:text-4xl font-bold text-gray-900">
                     Professional Website Design & Development
-                  </h2>
+                  </h2> */}
 
                   <p className="mt-5 text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700">
-                    Your website is the foundation of your online success. We build
-                    modern, responsive, and high-performing websites that reflect
-                    your brand identity and deliver exceptional user experiences.
-                    Every website we create is optimized for speed, SEO, and
-                    conversions, helping your business attract more visitors and
-                    turn them into loyal customers.
+                    Visitors typically make an instant decision whether to keep exploring your website. “Go to your website and if it looks outdated, confusing or slow, they are immediately going to leave and go to the next person.” That’s where the power of professional design comes in.
+
+                    <br />
+
+                    Adkey Media is a full-service design firm that has the creativity and the expertise to get your project done on time. We blend branding, usability and performance to design sites that not only look great, but also work. Our process maintains a focus on your brand identity, and leads users to take action.
                   </p>
                 </div>
               </div>
@@ -140,16 +200,13 @@ export default function Home() {
 
                 <div className="w-full lg:w-1/2 text-white">
                   <h2 className="text-2xl lg:text-4xl font-bold">
-                    Digital Marketing That Delivers Results
+                    A Results-Driven
+                    Digital Marketing Agency
                   </h2>
 
                   <p className="mt-5 text-base sm:text-lg lg:text-xl leading-relaxed text-gray-200">
-                    We help businesses grow through powerful SEO, Google Ads, Meta
-                    Ads, Social Media Marketing, and content strategies. Our
-                    data-driven campaigns increase your online visibility, generate
-                    high-quality leads, and improve customer engagement, ensuring
-                    every marketing investment contributes to measurable business
-                    growth.
+                    Adkey Media is a Full-service digital marketing agency focused on your business objectives. We help start-ups, small businesses and established brands harness the full potential of digital channels for measurable growth.
+                    We don’t just stop at brand visibility. Our strategies are built to generate quality leads, drive consistent sales and build a strong digital presence that lasts.
                   </p>
                 </div>
               </div>
@@ -167,16 +224,11 @@ export default function Home() {
 
                 <div className="w-full lg:w-1/2 text-white">
                   <h2 className="text-2xl lg:text-4xl font-bold">
-                    Grow Your Brand with Proven Strategies
+                    Trusted Digital Marketing Partner in Delhi
                   </h2>
 
                   <p className="mt-5 text-base sm:text-lg lg:text-xl leading-relaxed text-gray-300">
-                    We don't just run campaigns—we build long-term growth
-                    strategies. Through performance tracking, audience analysis,
-                    branding, and conversion optimization, we continuously improve
-                    your digital presence. Our goal is to help your business
-                    generate more leads, increase sales, and achieve sustainable
-                    success in today's competitive online market.
+                    Searching for a digital marketing agency that truly understands your business goals? Welcome to Adkey Media Pvt. Ltd.—your reliable partner in building a strong online presence, enhancing brand visibility, and achieving measurable outcomes. Since 2018, we have empowered startups, local businesses, and enterprises to transform clicks into loyal customers with strategies that are both transparent and result-driven.
                   </p>
                 </div>
               </div>
@@ -186,7 +238,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="w-full py-16 lg:py-24 px-4 sm:px-6 lg:px-8 flex justify-center">
+      <section className="w-full py-16 lg:py-10 px-4 sm:px-6 lg:px-8 flex justify-center">
         <div className="w-full max-w-6xl">
           {/* Heading */}
           <motion.h2
@@ -210,7 +262,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full max-h-7xl lg:h-[80vh] flex justify-center items-center py-10">
+      {/* Thoughts */}
+      <section className="w-full max-h-6xl lg:h-[80vh] flex justify-center items-center py-10">
         <div className="max-w-6xl w-full  h-full">
           <motion.h2
             initial={{ opacity: 0, y: 100 }}
@@ -252,6 +305,53 @@ export default function Home() {
 
       {/* why Adkey */}
       <WhyAdkey />
+
+      {/* Contact form */}
+       <Contactform  className="text-white" />
+
+       {/* map */}
+            <AdkeyLocation />
+
+      {/* Faq */}
+      <Faq faqs={faqs} />
     </>
   );
 }
+
+const faqs = [
+  {
+    question: "What is a digital marketing Company/Agency?",
+    answer:
+      "A digital marketing agency is a company that assists other businesses market their products or services online using digital channels, such as search engines, social media, websites, and email. To ensure visibility of your business online and drive targeted traffic, leads and sales through strategic decisions driven by data.",
+  },
+  {
+    question: "What services does Adkey Media offer?",
+    answer:
+      "Adkey Media offers full digital marketing services, which include SEO, social media marketing, Google & Meta ads, website design & development, content marketing and custom digital strategies that fit your business goals.",
+  },
+  {
+    question: "How does digital marketing help my business grow?",
+    answer:
+      "Digital Marketing allows you to engage an ideal audience, increase brand exposure, create quality leads and drive more sales using data driven measurable strategies across the internet.",
+  },
+  {
+    question: "What makes Adkey Media different from other agencies?",
+    answer:
+      "It's our result-oriented mentality, innovative techniques, open communication and full attention that makes us different. We think about long-term partnership, not just a short-term campaign.",
+  },
+  {
+    question: "What do your services cost?",
+    answer:
+      "We charge based on your list of services and the size of the project. We have flexible and cheap packages for everyone.",
+  },
+  {
+    question: "Can you assist with website design and development?",
+    answer:
+      "Yes, we are creative in house designers and developers who specialize in fast & mobile friendly websites that convert when optimized for search engines (SEO). Do you specialize in industries.",
+  },
+  {
+    question: "Is SEO better than paid advertising?",
+    answer:
+      "Both are important. SEO gets you organic traffic in the long run, and paid ads give you short-term results. We recommend a balanced strategy.",
+  },
+];

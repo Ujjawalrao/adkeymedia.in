@@ -13,23 +13,33 @@ const footerLinks = {
   company: [
     { path: "/", label: "Home" },
     { path: "/about", label: "About Us" },
-    { path: "/services", label: "Services" },
     { path: "/contact", label: "Contact Us" },
   ],
 
-  services: [
-    { label: "Website Designing" },
-    { label: "Website Development" },
-    { label: "PPC Google Ads" },
-    { label: "Search Engine Optimization" },
-    { label: "Social Media Optimization" },
-    { label: "GMB Promotion" },
-    { label: "Youtube Marketing" },
-    { label: "Video Editing" },
+  service: [
+    { path: "/services/website-designing", label: "Website Designing" },
+    { path: "/services/website-development", label: "Website Development" },
+    { path: "/services/ppc-google-ads", label: "PPC Google Ads" },
+    {
+      path: "/services/search-engine-optimization",
+      label: "Search Engine Optimization",
+    },
+    {
+      path: "/services/social-media-optimization",
+      label: "Social Media Optimization",
+    },
+    { path: "/services/gmb-promotion", label: "GMB Promotion" },
+    { path: "/services/youtube-marketing", label: "YouTube Marketing" },
+    { path: "/services/video-editing", label: "Video Editing" },
   ],
+
 };
 
 export default function Footer() {
+  const handleFooterLinkClick = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="relative overflow-hidden bg-gradient-to-b from-[#85168f] via-[#883790] to-[#2a0b4b] text-white pt-20 pb-8">
       {/* Background Text */}
@@ -47,8 +57,7 @@ export default function Footer() {
 
             <p className="text-white/70 leading-7 mb-8">
               We help businesses grow online through innovative digital
-              marketing, website development, branding, and creative
-              strategies.
+              marketing, website development, branding, and creative strategies.
             </p>
 
             <div className="flex gap-4">
@@ -81,17 +90,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="text-2xl font-semibold mb-6 uppercase">
-              Company
-            </h3>
+                    {/* Services */}
+          <div className="relative max-w-[240px]">
+            <h3 className="text-2xl font-semibold mb-4 uppercase">Services</h3>
 
             <ul className="space-y-4">
-              {footerLinks.company.map((item) => (
+              {footerLinks.service.map((item) => (
                 <li key={item.path}>
                   <Link
                     to={item.path}
+                    onClick={handleFooterLinkClick}
                     className="text-white/70 hover:text-white transition duration-300"
                   >
                     {item.label}
@@ -101,45 +109,34 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
-          <div className="relative max-w-[240px]">
-            <h3 className="text-2xl font-semibold mb-4 uppercase">
-              Services
-            </h3>
+          {/* Company */}
+          <div>
+            <h3 className="text-2xl font-semibold mb-6 uppercase">Company</h3>
 
-            <div className="group inline-block w-full rounded-xl border border-white/10 bg-white/10 px-3 py-3 backdrop-blur-md transition-all duration-300 hover:bg-white/20">
-              <div className="text-white/80 group-hover:text-white transition duration-300 cursor-pointer text-sm uppercase tracking-[0.2em]">
-                Explore Services
-              </div>
-
-              <div className="pointer-events-none mt-2 overflow-hidden rounded-lg border border-white/10 bg-[#2a0b4b]/95 shadow-2xl transition-all duration-300 max-h-0 opacity-0 group-hover:pointer-events-auto group-hover:max-h-[420px] group-hover:opacity-100">
-                <ul className="space-y-1 p-3">
-                  {footerLinks.services.map((item, index) => (
-                    <li
-                      key={index}
-                      className="text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-md px-2 py-2 transition duration-300"
-                    >
-                      {item.label}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            <ul className="space-y-4">
+              {footerLinks.company.map((item) => (
+                <li key={item.path}>
+                  <Link
+                    to={item.path}
+                    onClick={handleFooterLinkClick}
+                    className="text-white/70 hover:text-white transition duration-300"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-2xl font-semibold mb-6 uppercase">
-              Contact
-            </h3>
+            <h3 className="text-2xl font-semibold mb-6 uppercase">Contact</h3>
 
             <div className="space-y-5 text-white/70">
               <div className="flex gap-3">
                 <Phone className="mt-1 shrink-0" size={18} />
                 <div>
-                  <p className="font-semibold text-white">
-                    +91-9582345373
-                  </p>
+                  <p className="font-semibold text-white">+91-9582345373</p>
                   <p>+91-9891090497</p>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function debounce(func, wait) {
   let timeout;
@@ -206,7 +207,8 @@ class Media {
     bend,
     textColor,
     borderRadius = 0,
-    font
+    font,
+    slug
   }) {
     this.extra = 0;
     this.geometry = geometry;
@@ -223,6 +225,7 @@ class Media {
     this.textColor = textColor;
     this.borderRadius = borderRadius;
     this.font = font;
+    this.slug = slug;
     this.createShader();
     this.createMesh();
     this.createTitle();
@@ -389,11 +392,13 @@ class App {
       borderRadius = 0,
       font = 'bold 30px Figtree',
       scrollSpeed = 2,
-      scrollEase = 0.05
+      scrollEase = 0.05,
+      onNavigate
     } = {}
   ) {
     document.documentElement.classList.remove('no-js');
     this.container = container;
+    this.onNavigate = onNavigate;
     this.scrollSpeed = scrollSpeed;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck, 200);
@@ -432,15 +437,15 @@ class App {
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
-      { image: `src/assets/img-cr/web-design.jpg`, text: 'Website Design' },
-      { image: `src/assets/img-cr/web.jpg`, text: 'Web Development' },
-      { image: `src/assets/img-cr/google-ads.jpg`, text: 'Google Ads' },
-      { image: `src/assets/img-cr/seo.jpg`, text: 'S.E Optimization' },
-      { image: `src/assets/img-cr/smm.jpg`, text: 'Social Media Marketing' },
-      { image: `src/assets/img-cr/gmbp.jpg`, text: 'G.M.B Promotion' },
-      { image: `src/assets/img-cr/ytm.jpg`, text: 'YouTube Marketing' },
-      { image: `src/assets/img-cr/ve.jpg`, text: 'Video Editing' },
-      { image: `src/assets/img-cr/app.jpg`, text: 'App Development' },
+      { image: `src/assets/img-cr/web-design.jpg`, text: 'Website Design', slug: 'website-designing' },
+      { image: `src/assets/img-cr/web.jpg`, text: 'Web Development', slug: 'website-development' },
+      { image: `src/assets/img-cr/google-ads.jpg`, text: 'Google Ads', slug: 'ppc-google-ads' },
+      { image: `src/assets/img-cr/seo.jpg`, text: 'S.E Optimization', slug: 'search-engine-optimization' },
+      { image: `src/assets/img-cr/smm.jpg`, text: 'Social Media Marketing', slug: 'social-media-optimization' },
+      { image: `src/assets/img-cr/gmbp.jpg`, text: 'G.M.B Promotion', slug: 'gmb-promotion' },
+      { image: `src/assets/img-cr/ytm.jpg`, text: 'YouTube Marketing', slug: 'youtube-marketing' },
+      { image: `src/assets/img-cr/ve.jpg`, text: 'Video Editing', slug: 'video-editing' },
+      { image: `src/assets/img-cr/app.jpg`, text: 'App Development', slug: 'app-development' },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
@@ -459,12 +464,14 @@ class App {
         bend,
         textColor,
         borderRadius,
-        font
+        font,
+        slug: data.slug
       });
     });
   }
   onTouchDown(e) {
     this.isDown = true;
+    this.isDragging = false;
     this.scroll.position = this.scroll.current;
     this.start = e.touches ? e.touches[0].clientX : e.clientX;
   }
@@ -473,10 +480,40 @@ class App {
     const x = e.touches ? e.touches[0].clientX : e.clientX;
     const distance = (this.start - x) * (this.scrollSpeed * 0.025);
     this.scroll.target = this.scroll.position + distance;
+    if (Math.abs(this.start - x) > 6) {
+      this.isDragging = true;
+    }
   }
   onTouchUp() {
     this.isDown = false;
     this.onCheck();
+  }
+  getMediaFromPointer(x) {
+    if (!this.screen || !this.viewport || !this.medias?.length) return null;
+    const centerX = this.screen.width / 2;
+    const visibleWidth = this.viewport.width || this.screen.width;
+
+    return this.medias.reduce((closest, media) => {
+      const mediaScreenX = centerX + (media.plane.position.x / (visibleWidth / 2)) * centerX;
+      const distance = Math.abs(x - mediaScreenX);
+      if (distance < closest.distance) {
+        return { media, distance };
+      }
+      return closest;
+    }, { media: null, distance: Number.POSITIVE_INFINITY }).media;
+  }
+  onClick(e) {
+    if (this.isDragging || !this.container || !this.medias?.length) return;
+
+    const rect = this.container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const selectedMedia = this.getMediaFromPointer(x);
+
+    if (selectedMedia?.slug && this.onNavigate) {
+      this.onNavigate(selectedMedia.slug);
+    }
+
+    this.isDragging = false;
   }
   onWheel(e) {
     const delta = e.deltaY || e.wheelDelta || e.detail;
@@ -540,6 +577,7 @@ class App {
     this.boundOnTouchMove = this.onTouchMove.bind(this);
     this.boundOnTouchUp = this.onTouchUp.bind(this);
     this.boundOnKeyDown = this.onKeyDown.bind(this);
+    this.boundOnClick = this.onClick.bind(this);
     window.addEventListener('resize', this.boundOnResize);
     window.addEventListener('mousewheel', this.boundOnWheel);
     window.addEventListener('wheel', this.boundOnWheel);
@@ -551,6 +589,7 @@ class App {
     window.addEventListener('touchend', this.boundOnTouchUp);
 
     this.container?.addEventListener('keydown', this.boundOnKeyDown);
+    this.container?.addEventListener('click', this.boundOnClick);
   }
   destroy() {
     window.cancelAnimationFrame(this.raf);
@@ -569,6 +608,7 @@ class App {
 
     if (this.container) {
       this.container.removeEventListener('keydown', this.boundOnKeyDown);
+      this.container.removeEventListener('click', this.boundOnClick);
     }
   }
 }
@@ -584,6 +624,8 @@ export default function CircularGallery({
   scrollEase = 0.05
 }) {
   const containerRef = useRef(null);
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (!containerRef.current) return;
     let app;
@@ -597,7 +639,8 @@ export default function CircularGallery({
         borderRadius,
         font: resolvedFont,
         scrollSpeed,
-        scrollEase
+        scrollEase,
+        onNavigate: (slug) => navigate(`/services/${slug}`)
       });
     });
     return () => {

@@ -35,14 +35,14 @@ export default function ProjectShowcase() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="w-full bg-black py-20 overflow-hidden">
+    <section className="w-full py-10 lg:pt-20 overflow-hidden">
       <div className="max-w-6xl mx-auto">
 
-        <h2 className="text-center text-white text-5xl font-bold mb-14">
+        <h2 className="text-center text-white text-4xl font-bold mb-14">
           100+ Websites We Worked With
         </h2>
 
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden backdrop:blur-sm rounded-xl">
           <style>{`
             @keyframes scroll-left {
               from { transform: translateX(0); }
